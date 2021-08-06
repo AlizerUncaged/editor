@@ -402,7 +402,6 @@ export default {
             }
         });
         cvs = canvas;
-
         top = new TopCanvas(top_canvas);
     },
     getLevel: () => {

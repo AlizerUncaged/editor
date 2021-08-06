@@ -4,17 +4,42 @@
             "title": "File",
             "options": [
                 [
-                    { "name": "New Level", "id": "new" }
+                    {
+                        "name": "New Level",
+                        "id": "new"
+                    }
                 ],
                 [
-                    { "name": "Save", "id": "save", "icon": "ic-save.svg" },
-                    { "name": "Save as New", "id": "saveas", "icon": "ic-saveas.svg" },
-                    { "name": "Load", "id": "load" }
+                    {
+                        "name": "Save",
+                        "id": "save",
+                        "icon": "ic-save.svg"
+                    },
+                    {
+                        "name": "Save as New",
+                        "id": "saveas",
+                        "icon": "ic-saveas.svg"
+                    },
+                    {
+                        "name": "Load",
+                        "id": "load"
+                    }
                 ],
                 [
-                    { "name": "Export as File", "id": "export", "icon": "ic-export.svg" },
-                    { "name": "Import", "id": "import" },
-                    { "name": "Exit", "id": "exit", "icon": "ic-exit.svg" }
+                    {
+                        "name": "Export as File",
+                        "id": "export",
+                        "icon": "ic-export.svg"
+                    },
+                    {
+                        "name": "Import",
+                        "id": "import"
+                    },
+                    {
+                        "name": "Exit",
+                        "id": "exit",
+                        "icon": "ic-exit.svg"
+                    }
                 ]
             ]
         },
@@ -22,12 +47,24 @@
             "title": "Edit",
             "options": [
                 [
-                    { "name": "Undo", "id": "undo" },
-                    { "name": "Redo", "id": "redo" }
+                    {
+                        "name": "Undo",
+                        "id": "undo"
+                    },
+                    {
+                        "name": "Redo",
+                        "id": "redo"
+                    }
                 ],
                 [
-                    { "name": "Rename Level", "id": "renameLevel" },
-                    { "name": "Level Settings", "id": "lvlsettings" }
+                    {
+                        "name": "Rename Level",
+                        "id": "renameLevel"
+                    },
+                    {
+                        "name": "Level Settings",
+                        "id": "lvlsettings"
+                    }
                 ]
             ]
         },
@@ -35,18 +72,57 @@
             "title": "Build",
             "options": [
                 [
-                    { "name": "Build Helper", "id": "buildhelper" },
-                    { "name": "Align Horizontally", "id": "alignx" },
-                    { "name": "Align Vertically", "id": "aligny" }
+                    {
+                        "name": "Build Helper",
+                        "id": "buildhelper"
+                    },
+                    {
+                        "name": "Align Horizontally",
+                        "id": "alignx"
+                    },
+                    {
+                        "name": "Align Vertically",
+                        "id": "aligny"
+                    }
                 ],
                 [
-                    { "name": "Create Block Base", "id": "makebase" },
-                    { "name": "Create Block Outlines", "id": "makeoutlines" },
-                    { "name": "Create Block Edges", "id": "makeedges" }
+                    {
+                        "name": "Create Block Base",
+                        "id": "makebase"
+                    },
+                    {
+                        "name": "Create Block Outlines",
+                        "id": "makeoutlines"
+                    },
+                    {
+                        "name": "Create Block Edges",
+                        "id": "makeedges"
+                    }
                 ],
                 [
-                    { "name": "Reset Unused Colors and Groups", "id": "resetunused" },
-                    { "name": "Uncheck Portals", "id": "uncheckportals" }
+                    {
+                        "name": "Reset Unused Colors and Groups",
+                        "id": "resetunused"
+                    },
+                    {
+                        "name": "Uncheck Portals",
+                        "id": "uncheckportals"
+                    }
+                ]
+            ]
+        },
+        {
+            "title": "Networking",
+            "options": [
+                [
+                    {
+                        "name": "Start Server",
+                        "id" : "startserver"
+                    },
+                    {
+                        "name": "Connect to Server",
+                        "id" : "connectserver"
+                    }
                 ]
             ]
         },
@@ -54,10 +130,22 @@
             "title": "Settings",
             "options": [
                 [
-                    { "name": "General", "id": "settings1" },
-                    { "name": "Editor", "id": "settings2" },
-                    { "name": "Flags", "id": "settings3" },
-                    { "name": "Shortcuts", "id": "settings4" }
+                    {
+                        "name": "General",
+                        "id": "settings1"
+                    },
+                    {
+                        "name": "Editor",
+                        "id": "settings2"
+                    },
+                    {
+                        "name": "Flags",
+                        "id": "settings3"
+                    },
+                    {
+                        "name": "Shortcuts",
+                        "id": "settings4"
+                    }
                 ]
             ]
         },
@@ -65,21 +153,42 @@
             "title": "Help",
             "options": [
                 [
-                    { "name": "About", "id": "about" }
+                    {
+                        "name": "About",
+                        "id": "about"
+                    }
                 ],
                 [
-                    { "name": "Report a Bug", "id": "githubissue" },
-                    { "name": "GDExt Wiki", "id": "githubwiki" },
-                    { "name": "Contribute!", "id": "githubrepo" }
+                    {
+                        "name": "Report a Bug",
+                        "id": "githubissue"
+                    },
+                    {
+                        "name": "GDExt Wiki",
+                        "id": "githubwiki"
+                    },
+                    {
+                        "name": "Contribute!",
+                        "id": "githubrepo"
+                    }
                 ],
                 [
-                    { "name": "GD Docs", "id": "gddocs" },
-                    { "name": "Discord Server", "id": "discord" }
+                    {
+                        "name": "GD Docs",
+                        "id": "gddocs"
+                    },
+                    {
+                        "name": "Discord Server",
+                        "id": "discord"
+                    }
                 ]
             ]
         }
     ],
-    "right": [ 
-        "save", "saveas", "export", "exit"
+    "right": [
+        "save",
+        "saveas",
+        "export",
+        "exit"
     ]
 }
