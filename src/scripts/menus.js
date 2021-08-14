@@ -397,21 +397,122 @@ const bottomMenus = {
                     children: [
                         // groups
                         ui.label('Groups'),
-                        ui.textInput('Coming Soon!', {
+                        ui.array(() => { return [] }, {
                             id: 'editGroup',
-                            //defaultValue: () => { return '0' },
-                            icon: 'pick'
+                            maxItems: 10,
+                            width: 256,
+                            addMenu: {
+                                title: 'Add Group',
+                                maxwidth: 150,
+                                content: ui.container('column', { paddingX: 7, paddingY: 5}, [
+                                    ui.numberInput('Group ID', {
+                                        id: 'editGroupAddVal',
+                                        defaultValue: () => {
+                                            return 1;
+                                        },
+                                        min: 0,
+                                        max: 999,
+                                        icon: 'slide',
+                                        integerOnly: true,
+                                        marginBottom: 5
+                                    }),
+                                    ui.button('Next Free', { marginBottom: 5 }),
+                                    ui.button('Add Group', { id: 'editGroupAddBtn', primary: true })
+                                ]),
+                                btnId: 'editGroupAddBtn',
+                                valId: 'editGroupAddVal'
+                            },
+                            onValuesChange: (values, changes) => {
+                                let prevGroups = canvas.getRelativeTransform().groups;
+                                if(!prevGroups) return;
+
+                                // for adding new groups
+                                let addFilter = changes.add;
+                                if(addFilter != '') {
+                                    addFilter.forEach(ag => {
+                                        if(prevGroups.remove.includes(ag)) 
+                                            prevGroups.remove.splice(prevGroups.remove.indexOf(ag), 1);
+                                        
+                                        if(!prevGroups.add.includes(ag)) 
+                                            prevGroups.add.push(ag);
+                                    });
+                                }
+                                
+                                // for removing newly added groups
+                                let removeFilter = prevGroups.add.filter(f => changes.remove.includes(f));
+                                if(removeFilter != '') {
+                                    removeFilter.forEach(ag => {
+                                        prevGroups.add.splice(prevGroups.add.indexOf(ag), 1);
+                                        prevGroups.remove.push(ag);
+                                    });
+                                }
+
+                                // for removing groups that existed on select
+                                let removeOldFilter = prevGroups.all ? prevGroups.all.filter(f => changes.remove.includes(f)) : '';
+                                if(removeOldFilter != '') {
+                                    removeOldFilter.forEach(ag => {
+                                        prevGroups.all.splice(prevGroups.all.indexOf(ag), 1);
+                                        prevGroups.remove.push(ag);
+                                    });
+                                }
+
+                                canvas.setRelativeTransform({
+                                    groups: prevGroups
+                                });
+                            }
                         }),
 
                         // misc checkboxes
                         ui.container('row', { marginTop: 8.5, marginBottom: 8.5 }, [
                             ui.container('column', {}, [
-                                ui.checkbox('No Fade', { checked: () => { return false } }),
-                                ui.checkbox('Group Parent', { checked: () => { return false }, marginTop: 7 })
+                                ui.checkbox('No Fade', { 
+                                    id: 'editNoFade',
+                                    checked: () => { return false },
+                                    onCheckChange: (c) => {
+                                        let sel = canvas.getSelectedObjects();
+                                        sel.forEach(k => {
+                                            let o = canvas.getObjectByKey(k);
+                                            o.dontFade = c * 1;
+                                        })
+                                    } 
+                                }),
+                                ui.checkbox('Group Parent', { 
+                                    id: 'editGroupParent',
+                                    checked: () => { return false }, 
+                                    onCheckChange: (c) => {
+                                        let sel = canvas.getSelectedObjects();
+                                        sel.forEach(k => {
+                                            let o = canvas.getObjectByKey(k);
+                                            o.parent = c * 1;
+                                        })
+                                    },
+                                    marginTop: 7 
+                                })
                             ]),
                             ui.container('column', {}, [
-                                ui.checkbox('No Enter', { checked: () => { return false } }),
-                                ui.checkbox('High Detail', { checked: () => { return false }, marginTop: 7 })
+                                ui.checkbox('No Enter', { 
+                                    id: 'editNoEnter',
+                                    checked: () => { return false },
+                                    onCheckChange: (c) => {
+                                        let sel = canvas.getSelectedObjects();
+                                        sel.forEach(k => {
+                                            let o = canvas.getObjectByKey(k);
+                                            o.dontEnter = c * 1;
+                                        })
+                                    } 
+                                }),
+                                ui.checkbox('High Detail', {
+                                    id: 'editHighDetail', 
+                                    checked: () => { return false }, 
+                                    onCheckChange: (c) => {
+                                        let sel = canvas.getSelectedObjects();
+                                        sel.forEach(k => {
+                                            let o = canvas.getObjectByKey(k);
+                                            o.highDetail = c * 1;
+                                        })
+                                    },
+                                    marginTop: 7 
+                                })
                             ])
                         ]),
 
