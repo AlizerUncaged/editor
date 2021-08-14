@@ -4,7 +4,7 @@ import canvas from "./canvas";
 import util from "./util";
 import songsData from "../assets/levelparse/songs.json";
 import menus from "./menus";
-
+import ExtClient from "./Networking/client";
 let fs = null;
 if (window.process) fs = window.require("fs");
 
@@ -369,9 +369,10 @@ function executeAction(action) {
       util.alert("aboutDialog", "About GDExt", "TODO: Add about screen");
       break;
     case "startserver":
+      let client = new ExtClient("localhost", 9000);
+      client.startlisten();
       break;
     case "connectserver":
-        
       break;
     case "settings1":
       menus.openSettings(0);
