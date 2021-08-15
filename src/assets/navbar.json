@@ -116,10 +116,6 @@
             "options": [
                 [
                     {
-                        "name": "Start Server",
-                        "id" : "startserver"
-                    },
-                    {
                         "name": "Connect to Server",
                         "id" : "connectserver"
                     }

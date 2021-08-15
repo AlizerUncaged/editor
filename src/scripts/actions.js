@@ -368,12 +368,10 @@ function executeAction(action) {
     case "about":
       util.alert("aboutDialog", "About GDExt", "TODO: Add about screen");
       break;
-    case "startserver":
+    case "connectserver":
       client.host = "127.0.0.1";
       client.port = 9000;
       client.start_listen();
-      break;
-    case "connectserver":
       break;
     case "settings1":
       menus.openSettings(0);
