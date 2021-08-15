@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack && node chtml.js"
+    "build": "webpack && node chtml.js",
+    "start": "npm run build && npx http-server -p 8000 -c -1"
   },
   "repository": {
     "type": "git",

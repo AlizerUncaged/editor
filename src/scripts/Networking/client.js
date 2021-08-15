@@ -1,25 +1,23 @@
 const io = require("socket.io-client");
 
-export default class ExtClient {
-  constructor(host, port) {
-    this.host = host;
-    this.port = port;
-    this.clientio = io(`http://${this.host}:${this.port}/`, {
-      transports: ["websocket"],
-      origins: "*",
-    });
+let host, port, client_io;
 
-  }
-  startlisten() {
-    console.log("listening to server");
-    // with acknowledgement
-    this.clientio.on("message", (data) => {
-      console.log("received: "+data);
-      this.clientio.send("hi xddd");
-    });
-    this.clientio.on("connect", () => {
-      console.log("connected!");
-      this.clientio.send("hello there");
-    });
-  }
+function start_listen() {
+  client_io = io(`http://${this.host}:${this.port}/`, {
+    transports: ["websocket"],
+    origins: "*",
+  });
+
+  // with acknowledgement
+  client_io.on("message", (data) => {
+    console.log("Received: " + data);
+    client_io.send("hi xddd");
+  });
+
+  client_io.on("connect", () => {
+    console.log("Connected!");
+    client_io.send("hello there");
+  });
 }
+
+export default { host, port, start_listen };
